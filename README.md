@@ -31,6 +31,13 @@ export const handler = createLambda(
 
 - `options.renderError`
     - The function with argument `(err, event, context, callback)`, called when an error occurs in subsequent Pambdas.
+    - Default value is `defaultErrorResponse`.
+
+## defaultErrorResponse(err, event, context, callback)
+
+Default error handling function. Returns Internal Server Error response.
+
+Also, log objects that have properties of `event` and` err`.
 
 ## License
 
