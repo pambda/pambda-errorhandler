@@ -6,7 +6,10 @@
   "bugs": {
     "url": "https://github.com/pambda/pambda-errorhandler/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "err-json": "0.0.3",
+    "lambda-console": "0.0.1"
+  },
   "devDependencies": {},
   "homepage": "https://github.com/pambda/pambda-errorhandler",
   "keywords": [
