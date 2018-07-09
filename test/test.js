@@ -13,7 +13,9 @@ test('test', t => {
   lambda({}, {}, (err, result) => {
     t.error(err);
     t.equal(result.statusCode, 500);
-    t.equal(result.body.stack, undefined);
+
+    const body = JSON.parse(result.body);
+    t.equal(body.stack, undefined);
   });
 });
 
@@ -31,6 +33,8 @@ test('test for local running', t => {
   lambda({}, {}, (err, result) => {
     t.error(err);
     t.equal(result.statusCode, 500);
-    t.ok(Array.isArray(result.body.stack));
+
+    const body = JSON.parse(result.body);
+    t.ok(Array.isArray(body.stack));
   });
 });
