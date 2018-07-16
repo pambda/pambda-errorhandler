@@ -27,7 +27,9 @@ export const handler = createLambda(
 );
 ```
 
-## errorhandler(options)
+## API
+
+### errorhandler(options)
 
 - `options.renderError`
     - The function with argument `(err, event, context, callback)`, called when an error occurs in subsequent Pambdas.
@@ -36,7 +38,22 @@ export const handler = createLambda(
     - A topic ARN of SNS for publishing an error.
     - Default value is `process.env.ERROR_NOTIFICATION_ARN`.
 
-## defaultErrorResponse(err, event, context, callback)
+If the `options.errorNotificationArn` is used, such as the following configuration is needed in your SAM template:
+
+``` yaml
+Resources:
+  YourLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Policies:
+        - SNSPublishMessagePolicy:
+            TopicName: yourSnsTopicName
+      Environment:
+        Variables:
+          ERROR_NOTIFICATION_ARN: !Sub "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:yourSnsTopicName"
+```
+
+### defaultErrorResponse(err, event, context, callback)
 
 Default error handling function. Returns Internal Server Error response.
 
