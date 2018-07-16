@@ -1,5 +1,5 @@
 const { compose, createLambda } = require('pambda');
-const { errorhandler } = require('../..');
+const { errorhandler } = require('pambda-errorhandler');
 
 exports.handler = createLambda(
   compose(

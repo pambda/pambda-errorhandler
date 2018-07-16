@@ -10,13 +10,14 @@ Resources:
   Lambda:
     Type: AWS::Serverless::Function
     Properties:
-      
       Handler: index.handler
       Runtime: nodejs8.10
       CodeUri: .
       Policies:
         - AWSLambdaBasicExecutionRole
         - AWSXrayWriteOnlyAccess
+        - SNSPublishMessagePolicy:
+            TopicName: example
       Events:
         ApiRoot:
           Type: Api
@@ -28,4 +29,8 @@ Resources:
           Properties:
             Path: '/{proxy+}'
             Method: ANY
+      Environment:
+        Variables:
+          ERROR_NOTIFICATION_ARN: !Sub "arn:aws:sns:${AWS::Region}:${AWS::AccountId}:example"
       Tracing: Active
+      Timeout: 10
