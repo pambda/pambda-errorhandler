@@ -32,6 +32,9 @@ export const handler = createLambda(
 - `options.renderError`
     - The function with argument `(err, event, context, callback)`, called when an error occurs in subsequent Pambdas.
     - Default value is `defaultErrorResponse`.
+- `options.errorNotificationArn`
+    - A topic ARN of SNS for publishing an error.
+    - Default value is `process.env.ERROR_NOTIFICATION_ARN`.
 
 ## defaultErrorResponse(err, event, context, callback)
 
