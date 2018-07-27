@@ -7,9 +7,9 @@
     "pambda-errorhandler": "^0.1.0"
   },
   "devDependencies": {
-    "api-gateway-local": "^0.2.1",
+    "api-gateway-local": "^0.2.5",
     "aws-sdk": "^2.270.1",
-    "cfn-package": "^0.1.1"
+    "cfn-package": "^0.1.2"
   },
   "scripts": {
     "predeploy": "cfn-package --template-file template.yaml --output-template-file output-template.yaml --s3-bucket pambda-examples --s3-prefix pambda-errorhandler-example --region us-east-1",
