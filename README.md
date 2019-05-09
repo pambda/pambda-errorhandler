@@ -5,7 +5,7 @@ Error handler pambda.
 ## Installation
 
 ```
-npm i pambda-errorhandler -S
+npm i pambda-errorhandler
 ```
 
 ## Usage
