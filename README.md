@@ -37,6 +37,9 @@ export const handler = createLambda(
 - `options.errorNotificationArn`
     - A topic ARN of SNS for publishing an error.
     - Default value is `process.env.ERROR_NOTIFICATION_ARN`.
+- `options.errorNotificationTopicName`
+    - A topic name of SNS for publishing an error.
+    - If the `options.errorNotificationArn` is specified, this option is ignored.
 
 If the `options.errorNotificationArn` is used, such as the following configuration is needed in your SAM template:
 
